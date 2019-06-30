@@ -1,0 +1,30 @@
+{
+  "name": "koa-apollo-server",
+  "version": "0.1.0",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "github.com/Despair-lj",
+  "scripts": {
+    "start": "nodemon --exec babel-node server.js",
+    "insert": "babel-node config/data-init.js"
+  },
+  "dependencies": {
+    "apollo-server": "^2.6.6",
+    "apollo-server-koa": "^2.6.4",
+    "bcrypt": "^3.0.6",
+    "dataloader": "^1.4.0",
+    "graphql": "^14.3.1",
+    "jsonwebtoken": "^8.5.1",
+    "koa": "^2.7.0",
+    "koa2-cors": "^2.0.6",
+    "lodash": "^4.17.11",
+    "mongoose": "^5.6.0",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "nodemon": "^1.19.1"
+  }
+}

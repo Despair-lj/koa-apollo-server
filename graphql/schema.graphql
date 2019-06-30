@@ -1,0 +1,61 @@
+type User {
+  id: ID!
+  username: String!
+  email: String!
+  isAdmin: Boolean!
+  isDelete: Boolean!
+  votes: [Vote!]!
+}
+
+type Article {
+  id: ID!
+  title: String!
+  content: String!
+  createdAt: String!
+  user: User
+  votes: [Vote!]!
+}
+
+type Vote {
+  id: ID!
+  createdAt: String!
+  user: User!
+  article: Article!
+}
+
+type UserResponse {
+  ok: Boolean!
+  error: String
+  isAdmin: Boolean
+}
+
+type Feed {
+  articles: [Article!]!
+  count: Int!
+}
+
+type Query {
+  feed(filter: String, page: Int, pageSize: Int): Feed!
+  me: UserResponse
+  users: [User!]!
+}
+
+type Mutation {
+  createUser(
+    username: String!
+    email: String!
+    password: String!
+    isAdmin: Boolean
+  ): UserResponse!
+  changeUserStatus(userId: String!, status: Boolean!): UserResponse!
+  signup(username: String!, email: String!, password: String!): UserResponse!
+  logout: UserResponse!
+  login(email: String!, password: String!): UserResponse!
+  post(title: String!, content: String!): Article!
+  vote(articleId: String!): Vote!
+}
+
+type Subscription {
+  newArticle: Article
+  newVote: Vote
+}
